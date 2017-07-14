@@ -11,9 +11,10 @@ Oauth2 is used to allow the app to access data within an Aha! account via the Ah
 For privacy, no Aha! user data is ever persisted.
 
 ## Demo
-A working live demo hosted on AWS can be found here: [https://vierless.com/aha/](https://vierless.com/aha/)
 
-## Built with 
+A working live demo can be found here: [https://vierless.com/aha/](https://vierless.com/aha/)
+
+## Built with: 
 
 - Rails
 - Aha! API
@@ -21,6 +22,7 @@ A working live demo hosted on AWS can be found here: [https://vierless.com/aha/]
 - Bootstrap
 - JQuery
 - Google Charts
+- MySQL
 
 
 ## Testing
@@ -30,3 +32,7 @@ Testing is implemented via RSpec and Capybara including:
 - controller tests
 - view tests
 - feature tests
+
+## Deployment
+
+Deployed to AWS via Capistrano
