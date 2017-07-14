@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>
+    Aha! Funnel Chart Report
+  </h1>
+  <p>
+    Hi! This simple application helps you generate a funnel chart report for the ideas in your Aha! account.
+  </p> 
+  <% if current_session %>  
+    <p>
+      Your Aha! account is alrady authorized!  Click the button below to generate your report.
+    </p>
+  <% else %>
+    <p>
+      To see what your data looks like, click the button below and authorize your Aha! account.
+    </p>
+  <% end %>
+  <%= button_to 'Generate Report', '/aha/auth/aha_strategy', :method => :get, :class =>  "btn btn-primary", :id => "generate-report-button" %>
+
+  <h2>
+    Example Report
+  </h2>
+  <%= image_tag("example-report.png", :size => "600x300", :alt => "Sample Report", :class => "img-thumbnail") %>
+</div>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Aha! Funnel Report</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- google charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js">
+    </script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages: ['corechart']});     
+    </script>
+
+  </head>
+
+  <body class="<%= [params[:controller].split('/').join('-'),params[:action]].join(' ') %>">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to 'Aha! Funnel Report', root_path, :class => 'navbar-brand' %>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="<%='active' if params[:action] == 'new'%>">
+            <%= link_to 'Home', root_path %>
+          </li>
+        </ul>
+        <% if current_session %>
+          <ul class="nav navbar-nav">
+            <li class="<%='active' if params[:action] == 'show'%>">
+              <%= link_to 'Funnel Report', session_path(current_session) %>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    </nav>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+          <%= value %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>
